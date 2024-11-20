@@ -39,7 +39,8 @@
     CLM1PT		= Run with supplied single point data (force CLM)
     CORE2_NYF		= CORE2 normal year forcing (for forcing POP and CICE)
     CORE2_IAF		= CORE2 intra-annual year forcing (for forcing POP and CICE)
-    CORE_IAF_JRA		= JRA55 intra-annual year forcing (for forcing POP and CICE)
+    CORE_IAF_JRA	= JRA55 intra-annual year forcing (for forcing POP and CICE)
+    CORE_IAF_JRARYF1961= Repeat year 1961 of JRA55 for spin-up purposes
     CPLHIST     	= Streams for lnd or ocn/ice forcing used for spinup
     presaero		= Prescribed aerosol forcing
     topo		= Surface topography
@@ -1641,7 +1642,8 @@
         JRA.v1.3.v_10.TL319.2016.190528.nc
         JRA.v1.3.v_10.TL319.2017.190528.nc
         JRA.v1.3.v_10.TL319.2018.190528.nc
-      </value> 
+      </value>
+            
       <value stream="co2tseries.20tr.latbnd">fco2_datm_lat-bands_simyr_1750-2015_CMIP6_c180929.nc</value>
       <value stream="co2tseries.20tr">fco2_datm_global_simyr_1750-2014_CMIP6_c180929.nc</value>
       <value stream="co2tseries.omip2">fco2_datm_global_ssp585_simyr_1750-2020_CMIP6_c190522.nc</value>
@@ -2034,6 +2036,7 @@
       <value stream="CORE2_IAF.CORE2.ArcFactor">1948</value>
       <value stream="CORE2_IAF">1948</value>
       <value stream="CORE_IAF_JRA">1958</value>
+      <value stream="CORE_IAF_JRA" datm_mode="CORE_IAF_JRARYF1961">1</value>
       <value stream="co2tseries.20tr">1850</value>
       <value stream="co2tseries.omip2" datm_mode="CORE_IAF_JRA">1850</value>
       <value stream="co2tseries.rcp">2005</value>
@@ -2099,6 +2102,7 @@
       <value stream="CORE_IAF_JRA.NCEP.T_10">1958</value>
       <value stream="CORE_IAF_JRA.NCEP.U_10">1958</value>
       <value stream="CORE_IAF_JRA.NCEP.V_10">1958</value>
+      <value stream="CORE_IAF_JRA" datm_mode="CORE_IAF_JRARYF1961">1961</value>
       <value stream="co2tseries.20tr">1850</value>
       <value stream="co2tseries.omip2">1850</value>
       <value stream="co2tseries.rcp">2005</value>
@@ -2163,6 +2167,7 @@
       <value stream="CORE_IAF_JRA.NCEP.T_10">2018</value>
       <value stream="CORE_IAF_JRA.NCEP.U_10">2018</value>
       <value stream="CORE_IAF_JRA.NCEP.V_10">2018</value>
+      <value stream="CORE_IAF_JRA" datm_mode="CORE_IAF_JRARYF1961">1961</value>
       <value stream="co2tseries.20tr">2014</value>
       <value stream="co2tseries.omip2">2019</value>
       <value stream="co2tseries.rcp">2500</value>
@@ -2211,7 +2216,7 @@
     <type>char</type>
     <category>streams</category>
     <group>shr_strdata_nml</group>
-    <valid_values>CLMNCEP,COPYALL,CORE2_NYF,CORE2_IAF,CORE_IAF_JRA,NULL</valid_values>
+    <valid_values>CLMNCEP,COPYALL,CORE2_NYF,CORE2_IAF,CORE_IAF_JRA,CORE_IAF_JRARYF1961,NULL</valid_values>
     <desc>
       general method that operates on the data.  this is generally
       implemented in the data models but is set in the strdata method for
@@ -2249,6 +2254,8 @@
       Clm Dyn doi 10.1007/s00382-008-0441-3.
       datamode = "CORE_IAF_JRA"
       JRA55 intra-annual year forcing
+      datamode = "CORE_IAF_JRARYF1961"
+      Repeat year 1961 of JRA55 forcing for spin-up
       datamode = "CLMNCEP"
       In conjunction with NCEP climatological atmosphere data, provides the
       atmosphere forcing favored by the Land Model Working Group when
@@ -2263,6 +2270,7 @@
       <value datm_mode="CORE2_NYF">CORE2_NYF</value>
       <value datm_mode="CORE2_IAF">CORE2_IAF</value>
       <value datm_mode="CORE_IAF_JRA">CORE_IAF_JRA</value>
+      <value datm_mode="CORE_IAF_JRARYF1961">CORE_IAF_JRARYF1961</value>
       <value datm_mode="CPLHIST">COPYALL</value>
     </values>
   </entry>
